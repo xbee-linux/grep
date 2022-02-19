@@ -1,0 +1,29 @@
+schema-version: 1.0
+
+type: builder
+
+description: |
+  The Grep package contains programs for searching through the contents of files.
+  Installed programs: egrep, fgrep, and grep
+  Short Descriptions
+    egrep: Prints lines matching an extended regular expression
+    fgrep: Prints lines matching a list of fixed strings
+    grep: Prints lines matching a basic regular expression
+
+in:
+  version: 3.7
+
+provision:
+  - url:
+      from: https://ftp.gnu.org/gnu/grep/grep-{% version %}.tar.xz
+      todir: "{% xbeeSrc %}"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr
+        - make
+        - make install DESTDIR={% xbeeOut %}
+      directory: "{% xbeeSrc %}/grep-{% version %}"
+
+
