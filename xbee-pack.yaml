@@ -10,20 +10,20 @@ description: |
     fgrep: Prints lines matching a list of fixed strings
     grep: Prints lines matching a basic regular expression
 
-in:
+var:
   version: 3.7
 
 provision:
   - url:
-      from: https://ftp.gnu.org/gnu/grep/grep-{% version %}.tar.xz
-      todir: "{% xbeeSrc %}"
+      from: https://ftp.gnu.org/gnu/grep/grep-{{ .version }}.tar.xz
+      todir: "{{ .xbee.src }}"
 
 build:
   - shell:
       cmds:
         - ./configure --prefix=/usr
         - make
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/grep-{% version %}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/grep-{{ .version }}"
 
 
