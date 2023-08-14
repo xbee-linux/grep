@@ -14,9 +14,7 @@ var:
   version: 3.7
 
 provision:
-  - url:
-      from: https://ftp.gnu.org/gnu/grep/grep-{{ .version }}.tar.xz
-      todir: "{{ .xbee.src }}"
+  url: https://ftp.gnu.org/gnu/grep/grep-{{ .version }}.tar.xz
 
 build:
   - shell:
