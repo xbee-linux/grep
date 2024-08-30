@@ -11,7 +11,8 @@ description: |
     grep: Prints lines matching a basic regular expression
 
 var:
-  version: 3.7
+  xbee:
+    version: 3.7
 
 provision:
   url: https://ftp.gnu.org/gnu/grep/grep-{{ .version }}.tar.xz
