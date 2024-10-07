@@ -1,7 +1,5 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
   The Grep package contains programs for searching through the contents of files.
   Installed programs: egrep, fgrep, and grep
